@@ -458,31 +458,26 @@ const movies = [
 ]
 
 
-
-
-
-
-
-
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 console.log("ESERCIZIO 12");
 
 
- function newestMovie() {
-  return movies.reduce((latest, currentMovie) => {
-    if (parseInt(currentMovie.Year) > parseInt(latest.Year)) {
-      return currentMovie;
+function oldFilm(movies ) {
+  let movie = {Year: 0}
+  movies.forEach(ele => {
+    if(movie.Year < ele.Year) {
+      movie = ele
     }
-    return latest;
-  });
+  }) 
+  return movie
 }
 
-
-
-console.log(newestMovie());
+console.log(oldFilm(movies))
  
+
+
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
@@ -687,9 +682,9 @@ addBackground();
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
-//DECOMMENTO ALTRIMENTI MI DA L'ERRORE IN CONSOLE
 
-/*  function addElement() {
+
+ function addElement() {
 
   let selectedList = document.getElementById("myList");
   let createLi = document.createElement ("li")
@@ -698,16 +693,15 @@ addBackground();
 
 }
 
-addElement();  */
+
 
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
-//DECOMMENTO ALTRIMENTI MI DA L'ERRORE IN CONSOLE
 
-/* function noList() {
+ function noList() {
   let selectedList2 = document.getElementById("myList");
   let listElements = selectedList2.querySelectorAll("li");
 
@@ -715,8 +709,7 @@ addElement();  */
     selectedList2.removeChild(ele);
   });
 }
-noList()
- */ 
+
 
 
 
@@ -775,17 +768,24 @@ halfTree(3);
 
 */
 
+
+ 
+
 console.log("Esercizio 28 ")
 
-
-function tree(num7) {for (let i = 1; i <= num7; i++) {
-  let spacesNull = " ".repeat(num7 - i);  
-  let asterisk = "*".repeat(2 * i - 1);  
-  console.log(spacesNull + asterisk); 
+function tree(num6) {
+  for (let i = 1; i <= num6; i++) {
+    if (i=1) {
+      return " " + "*".repeat(i);  
+    } else if (i=2) {
+      return " " + " " + "*".repeat(i); 
+    } else {
+     } return "*".repeat(i);  
+  }
 }
-}
 
-tree(3);  
+console.log(tree(3));  
+
 
 
 
